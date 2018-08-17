@@ -1,0 +1,24 @@
+<div class="container-fluid m-t-2">
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+            <h1>
+				<template [ngIf]="!postData.id">Add Post</template>
+				<template [ngIf]="postData.id">Update Post</template>
+            </h1>
+            <form (submit)="saveUpdatePost()" #newPost="ngForm">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" [(ngModel)]="postData.title">
+                </div>
+                <div class="form-group">
+                    <label for="body">Description</label>
+                    <textarea name="body" id="body" name="body" class="form-control" [(ngModel)]="postData.body"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+					<template [ngIf]="!postData.id">Add Post</template>
+					<template [ngIf]="postData.id">Update Post</template>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

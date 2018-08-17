@@ -1,0 +1,49 @@
+<nav class="navbar navbar-dark bg-primary navbar-fixed-top">
+    <a class="navbar-brand" [routerLink]="['/']">
+        <button class="navbar-toggler" type="button">
+            &#9776;
+        </button>
+        Pizza Ordering System
+    </a>
+<!--     <ul class="nav navbar-nav pull-sm-right">
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/posts']">Posts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/about']">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/contact']">Contact</a>
+        </li>
+    </ul> -->
+</nav>
+<div id="wrapper">
+    <aside class="sidebar left sidebar-menu-bg sidebar-xs">
+        <div class="sidebar-inner">
+            <ul class="menu">
+                <li>
+                    <a href=''>Home</a>
+                </li>
+                <li class="active">
+                    <a href=''>About</a>
+                </li>
+                <li>
+                    <a href=''>Contact</a>
+                </li>
+                <li class="sub-menu">
+                    <a href="">
+                        <i class="ti-angle-right menu-arrow"></i> Headers</a>
+                    <ul>
+                        <li><a data-ng-click="mactrl.sidebarStat($event)" data-ui-sref="headers.textual-menu" data-ui-sref-active="active" class="active" href="#/headers/textual-menu">Textual menu</a></li>
+                        <li><a data-ng-click="mactrl.sidebarStat($event)" data-ui-sref="headers.image-logo" data-ui-sref-active="active" href="#/headers/image-logo">Image logo</a></li>
+                        <li><a data-ng-click="mactrl.sidebarStat($event)" data-ui-sref="headers.mainmenu-on-top" data-ui-sref-active="active" href="#/headers/mainmenu-on-top">Mainmenu on top</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

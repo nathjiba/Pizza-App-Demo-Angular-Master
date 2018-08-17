@@ -1,0 +1,64 @@
+<div class="container m-t-2">
+    <h1>Order a Pizza</h1>
+    <div class="row">
+        <div class="col-sm-8">
+            <h2>Select Pizza</h2>
+            <div class="form-group row" *ngFor="let pizza of pizzas; let i=index">
+                <label for="size" class="col-xs-4 col-form-label">{{ pizza.type }}</label>
+                <div class="col-xs-4">
+                    <select #selectedPizza class="form-control" id="size" (change)="addPizzaToCart(pizza, selectedPizza)">
+                    	<option value="0">None</option>
+                    	<option value="{{ pizza.small }}">Small</option>
+                    	<option value="{{ pizza.medium }}">Medium</option>
+                    	<option value="{{ pizza.large }}">Large</option>
+                    </select>
+                </div>
+            </div>
+<!--             <table class="table table-bordered table-sm">
+                <thead>
+                    <tr class="table-inverse">
+                        <th>Types of Pizza</th>
+                        <th>Small</th>
+                        <th>Medium</th>
+                        <th>Large</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pizza of pizzas; let i=index" (click)="addPizzaToCart(pizza, i)" [ngClass]="{'table-active': selectedIdx[i]}">
+                        <td>{{ pizza.type }}</td>
+                        <td>{{ pizza.small | currency:USD:true}}</td>
+                        <td>{{ pizza.medium | currency:USD:true}}</td>
+                        <td>{{ pizza.large | currency:USD:true}}</td>
+                    </tr>
+                </tbody>
+            </table> -->
+            <p>Total Pizza Price: <strong>{{ pizzasTotal | currency:USD:true }}</strong></p>
+        </div>
+        <div class="col-sm-4">
+            <h2>Select Toppings</h2>
+            <table class="table table-bordered table-sm">
+                <thead>
+                    <tr class="table-inverse">
+                        <th>Topings</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let topping of toppings; let i=index" (click)="addToppingsToCart(topping, i)" [ngClass]="{'table-active': selectedToppingsIdx[i]}">
+                        <td>{{ topping.name }}</td>
+                        <td>{{ topping.price | currency:USD:true }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Total Toppings Price: <strong>{{ toppingsTotal | currency:USD:true }}</strong></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card card-outline-primary text-xs-center">
+                <div class="card-block">
+                    <h3>Grand Total (pizza + toppings): <strong>{{ (pizzasTotal + toppingsTotal) | currency:USD:true }} </strong></h3>
+                </div>
+            </div>
+        </div>
+    </div>
